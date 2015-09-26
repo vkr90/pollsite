@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import patterns,  include, url
 from django.contrib import admin
-from polling import views
+from polling.views import Index, Profile , PostPoll, HashTagsCloud, Search
 
 admin.autodiscover()
 urlpatterns = patterns('',
-    url(r'^$', views.index, name='index'),
+    url(r'^$', Index.as_view()),
+    url(r'^user/(\w+)/$',Profile.as_view()),
+    url(r'^user/(\w+)/post/$',PostPoll.as_view()),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^hashtag/(\w+)/$',HashTagsCloud.as_view()),
+    url(r'^search/$',Search.as_view()),
 )
