@@ -1,2 +1,2 @@
 # pollsite
-test Pyhton Django
+LEARNING DJANGO
